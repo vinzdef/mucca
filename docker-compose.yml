@@ -1,0 +1,116 @@
+version: '3'
+
+services:
+  jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam #optional
+    volumes:
+      - ./config/jackett:/config
+      - ./blackhole:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+
+  bazarr:
+    image: linuxserver/bazarr
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+      - UMASK_SET=022 #optional
+    volumes:
+      - ./config/bazarr:/config
+      - ./media/movies:/movies
+      - ./media/tv:/tv
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+
+  deluge:
+    image: linuxserver/deluge
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=timezone
+      - UMASK_SET=022 #optional
+      - DELUGE_LOGLEVEL=debug #optional
+    volumes:
+      - ./config/deluge:/config
+      - ./downloads:/downloads
+    ports:
+      - 58846:58846
+      - 58946:58946
+      - 58946:58946/udp
+      - 8112:8112
+    restart: unless-stopped
+
+  sonarr:
+    image: linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+      - UMASK_SET=022 #optional
+    volumes:
+      - ./config/sonarr:/config
+      - ./media/tv:/tv
+      - ./downloads:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  radarr:
+    image: linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+      - UMASK_SET=022 #optional
+    volumes:
+      - ./config/radarr:/config
+      - ./media/movies:/movies
+      - ./downloads:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+  lidarr:
+    image: linuxserver/lidarr
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Amsterdam
+      - UMASK_SET=022 #optional
+    volumes:
+      - ./config/lidarr:/config
+      - ./media/music:/music
+      - ./downloads:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+
+  plex:
+    image: linuxserver/plex
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - UMASK_SET=022 #optional
+    volumes:
+      - ./config/plex:/config
+      - ./media/tv:/tv
+      - ./media/movies:/movies
+      - ./media/music:/music
+      - ./transcode:/transcode
+    restart: unless-stopped
