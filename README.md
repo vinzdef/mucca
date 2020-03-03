@@ -29,9 +29,9 @@ You will find all the services on your `localhost` at their default ports:
 + **Jacket**: `:9117`
 
 Now you need:
-+ Pick a password for deluge, or disable it altogether along with any other option you may want to touch.
++ Pick a password for Deluge,along with any other option you may want to touch.
 + Tell library agents (Sonarr, Radarr, Lidarr) where to find your torrent client (Deluge), this can be done in their respective settings.
 + Add your chosen trackers in Jackett, then go to the libraries (as above) and use jackett's aggregated endpoint to search 'em all.
-+ Configure Plex on it's page.
++ Configure Plex.
 + ...
 + Profit!
