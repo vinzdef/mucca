@@ -1,4 +1,5 @@
 # mucca
+![a mucca does what she wants because a mucca is free](./docs/mucca.jpg)
 
 ## AIO solution to download and manage your media files!
 
