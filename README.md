@@ -15,7 +15,9 @@ Mucca is a set of software used to download, manage and consume media files, nam
 
 ### Installation
 
-Just download this repo, then: `docker-compose up -d`
+Just download this repo, then: `docker-compose up -d`.
+
+This will start all the services in the background.
 
 You will find all the services on your `localhost` at their default ports:
 + **Sonarr**: `:8989`
@@ -25,9 +27,6 @@ You will find all the services on your `localhost` at their default ports:
 + **Plex**:   `:32400`
 + **Deluge**: `:8112`
 + **Jacket**: `:9117`
-
-
-This will start all the services in the background.
 
 Now you need:
 + Pick a password for deluge, or disable it altogether along with any other option you may want to touch.
