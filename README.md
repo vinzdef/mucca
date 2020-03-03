@@ -1,9 +1,8 @@
 # mucca
 ![a mucca does what she wants because a mucca is free](./docs/mucca.jpg)
-
 ## AIO solution to download and manage your media files!
 
-Mucca is a set of software used to download, manage and consume media files, namedly:
+Mucca is a set of software commonly used for to download, manage and consume media files, namedly:
 
 + [Sonarr](https://github.com/Sonarr/Sonarr) — TV Series
 + [Radarr](https://github.com/Radarr/Radarr) — Movies
